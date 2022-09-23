@@ -1,7 +1,7 @@
 <template>
 <div class="the-header">
   <img src="/logo.svg" alt="logo">
-  <a href="#" class="the-header__license">Лицензия</a>
+  <!-- <a href="#" class="the-header__license">Лицензия</a> -->
 </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
+  height: 72px;
   @include respond-to(md){
     justify-content: center;
   }
