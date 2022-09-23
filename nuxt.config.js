@@ -65,10 +65,10 @@ export default {
     baseURL: '/',
   },
   router: {
-    base: '/gcg.github.io/',
+    base: '/gcg/',
   },
   static: {
-    prefix: '/gcg.github.io/',
+    prefix: '/gcg/',
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
