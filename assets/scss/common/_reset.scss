@@ -1,0 +1,105 @@
+/*
+ ** Данный файл содержит дефолтные стили, дополняющие normalize.css.
+ ** Крайне не рекомендуется вносить здесь какие либо изменения.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  // background-color: $body-bg;
+  font-family: $font-family;
+  // font-size: $font-size;
+  // color: $body-color;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: inherit;
+}
+
+input {
+  outline: none;
+
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  input[type=number] {
+      -moz-appearance: textfield;
+  }
+
+  &[type='time']::-webkit-clear-button {
+      display: none;
+  }
+
+  &::-ms-clear {
+      display: none;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+  font-size: inherit;
+}
+
+address {
+  font-style: normal;
+}
