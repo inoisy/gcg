@@ -21,7 +21,10 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap' },
     ],
   },
-
+  server: {
+    port: process.env.APP_PORT,
+    host: process.env.APP_HOST,
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/scss/common.scss',
