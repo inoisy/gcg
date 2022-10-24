@@ -1,11 +1,11 @@
 @mixin respond-to($name) {
   $max: map-get($breakpoints, $name);
   @if $max {
-      @media only screen and (max-width: $max) {
-          @content;
-      }
-  } @else {
+    @media only screen and (max-width: $max) {
       @content;
+    }
+  } @else {
+    @content;
   }
 }
 

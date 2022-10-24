@@ -68,20 +68,20 @@ input {
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
   }
 
   input[type=number] {
-      -moz-appearance: textfield;
+    -moz-appearance: textfield;
   }
 
   &[type='time']::-webkit-clear-button {
-      display: none;
+    display: none;
   }
 
   &::-ms-clear {
-      display: none;
+    display: none;
   }
 }
 
@@ -96,8 +96,8 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-weight: normal;
   font-size: inherit;
+  font-weight: normal;
 }
 
 address {

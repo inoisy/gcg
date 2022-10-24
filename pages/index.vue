@@ -38,93 +38,112 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.index-page{
-  flex: 1;
-  height: 100%;
-  &__bottom{
-    border-top: 0.5px solid $black;
-    border-right: 0.5px solid $black;
-    @include respond-to(md){
-      display: none;
-    }
-  }
-  &__wrapper{
-    display: grid;
-    grid-template-columns: clamp(325px, 23%, 23%) auto;
-    grid-template-rows: 20vh 65vh auto;
+  .index-page {
     flex: 1;
-    min-height: calc(100% - 72px);
-    @include respond-to(md){
-      display: flex;
-    }
-  }
-  &__company-name-wrapper{
-    border-bottom: 0.5px solid $black;
-    border-right: 0.5px solid $black;
-    background-color: #97A99F;
-    // width: 23%;
-    // min-width: 325px;
-    // min-height: 20vh;
-    padding-left:42px;
-    padding-right: 14px;
-    display: flex;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    // padding: 42px 14px 33px 48px;
-    @include respond-to(md){
-      display: none;
-    }
-  }
-  &__company-name{
-    font-family: 'Arial Black';
-    font-weight: 900;
-    font-size: 28px;
-    line-height: 39px;
-    color:#97A99F;
-    text-shadow: 0.5px 0 #fff, -0.5px 0 #fff, 0 0.5px #fff, 0 -0.5px #fff,
-             0.5px 0.5px #fff, -0.5px -0.5px #fff, 0.5px -0.5px #fff, -0.5px 0.5px #fff;
+    height: 100%;
 
-  }
-  &__middle{
-    border: 0.5px solid $black;
-    border-right: none;
-    background-color: #97A99F;
-    // margin-left: clamp(325px, 23%, 23%);
-    padding: 48px;
-    // height: 65vh;
-    position:relative;
-    @include respond-to(md){
-      margin-left: 0;
+    &__bottom {
+      border-top: .5px solid $black;
+      border-right: .5px solid $black;
+
+      @include respond-to(md) {
+        display: none;
+      }
     }
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-    color: #FFFFFF;
-    @include respond-to(md){
-      font-size: 16px;
-      line-height: 19px;
-      width: 100%;
-      border: none !important;
+
+    &__wrapper {
+      display: grid;
+      grid-template-columns: clamp(325px, 23%, 23%) auto;
+      grid-template-rows: 20vh 65vh auto;
+      flex: 1;
+      min-height: calc(100% - 72px);
+
+      @include respond-to(md) {
+        display: flex;
+      }
     }
-    h1 {
+
+    &__company-name-wrapper {
+      display: flex;
+      align-items: center;
+      padding-top: 20px;
+      padding-right: 14px;
+      padding-bottom: 20px;
+      // width: 23%;
+      // min-width: 325px;
+      // min-height: 20vh;
+      padding-left: 42px;
+      border-right: .5px solid $black;
+      border-bottom: .5px solid $black;
+      background-color: #97a99f;
+      // padding: 42px 14px 33px 48px;
+      @include respond-to(md) {
+        display: none;
+      }
+    }
+
+    &__company-name {
+      text-shadow:
+        .5px 0 #fff,
+        -.5px 0 #fff,
+        0 .5px #fff,
+        0 -.5px #fff,
+        .5px .5px #fff,
+        -.5px -.5px #fff,
+        .5px -.5px #fff,
+        -.5px .5px #fff;
+      font-family: 'Arial Black', Tahoma, sans-serif;
+      font-size: 28px;
       font-weight: 900;
-      font-size: 32px;
-      line-height: 38px;
-      margin-bottom: 24px;
-      @include respond-to(md){
-        font-size: 24px;
-        line-height: 28px;
+      line-height: 39px;
+      color: #97a99f;
+    }
+
+    &__middle {
+      // height: 65vh;
+      position: relative;
+      // margin-left: clamp(325px, 23%, 23%);
+      padding: 48px;
+      border: .5px solid $black;
+      border-right: none;
+      background-color: #97a99f;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 28px;
+      color: #fff;
+
+      @include respond-to(md) {
+        margin-left: 0;
+      }
+
+      @include respond-to(md) {
+        width: 100%;
+        border: none !important;
+        font-size: 16px;
+        line-height: 19px;
+      }
+
+      h1 {
+        margin-bottom: 24px;
+        font-size: 32px;
+        font-weight: 900;
+        line-height: 38px;
+
+        @include respond-to(md) {
+          font-size: 24px;
+          line-height: 28px;
+        }
+      }
+    }
+
+    &__img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      @include respond-to(md) {
+        max-width: 90%;
       }
     }
   }
-  &__img{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    @include respond-to(md){
-      max-width: 90%;
-    }
-  }
-}
 </style>
