@@ -1,4 +1,5 @@
-@import "./common/reset";
+@import "./common/_reset.scss";
+@import "./common/_transitions.scss";
 
 html,
 body,
@@ -6,4 +7,31 @@ body,
 #__layout {
   width: 100%;
   height: 100%;
+}
+
+body {
+  font-family: $font-family;
+}
+
+html {
+  font-size: .6944444444vw;
+  // scroll-behavior: smooth;
+  // scroll-snap-type: y proximity;
+
+  @include respond-to(md) {
+    font-size: 10px;
+  }
+}
+
+.body--fullscreen-mixin {
+  position: fixed !important;
+}
+
+.body--force-scrollbar,
+.body--prevent-scroll {
+  position: fixed !important;
+}
+
+.body--force-scrollbar {
+  overflow-y: scroll !important;
 }

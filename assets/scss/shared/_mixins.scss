@@ -15,3 +15,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin transition-delay($count, $delay: 0, $defaultDelay: .15) {
+  @for $i from 1 through $count {
+    &:nth-child(#{$i}) {
+      transition-delay: #{($i * $defaultDelay)+ $delay}s;
+    }
+  }
+}
+
+@function torem($valPx) {
+  @return #{($valPx / 10)}rem;
+}

@@ -1,0 +1,27 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s $transition;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// .fade-move {
+//   transition: transform 1s;
+// }
+
+.fade-fast-enter-active,
+.fade-fast-leave-to {
+  transition: opacity .2s $transition;
+}
+
+.fade-fast-enter,
+.fade-fast-leave-to {
+  opacity: 0;
+}
+
+// .fade-fast-move {
+//   transition: transform 1s;
+// }

@@ -1,7 +1,7 @@
 $breakpoints: (
   xs: 0,
   sm: 768px,
-  md: 992px,
+  md: 1024px,
   lg: 1440px,
   xl: 1920px,
 );
@@ -16,3 +16,4 @@ $transitions: (
   'swing': cubic-bezier(.25, .8, .5, 1)
 );
 $transition: .3s map-get($transitions, 'swing');
+$olive: #809a8c;

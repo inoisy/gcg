@@ -25,6 +25,14 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'vue/max-attributes-per-line': ['error', {
+      singleline: {
+        max: 1,
+      },
+      multiline: {
+        max: 1,
+      },
+    }],
     'sonarjs/cognitive-complexity': 0,
     'linebreak-style': 0,
     'promise/no-nesting': 0,
