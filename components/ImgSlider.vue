@@ -1,15 +1,16 @@
 <template>
 <div class="img-slider">
   <!-- <div> -->
-  <!-- class="projects__img-wrapper" -->
-  <img
+  <!-- class="projects__img-wrapper" sizes="lg:70vw"-->
+  <NuxtImg
     class="projects__img"
     :src="src"
     alt="Проект"
-  >
+    loading="lazy"
+    format="jpg"
+  />
   <div class="projects__img-curtain"/>
   <div class="projects__img-curtain-side"/>
-  <!-- @load="onImageLoad" </div> -->
 </div>
 </template>
 

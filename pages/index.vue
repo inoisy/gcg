@@ -38,11 +38,12 @@
           <div class="line__horizontal mobile mobile-two"/>
         </div>
         <div class="main__img-wrapper">
-          <img
+          <NuxtImg
             src="/main-bg.jpg"
             alt="sd"
             class="main__img"
-          >
+            loading="lazy"
+          />
         </div>
         <div class="line__vertical line__vertical-one-bottom" />
         <div class="line__vertical line__vertical-two-bottom" />
@@ -64,11 +65,12 @@
           <div
             class="about__img-wrapper"
           >
-            <img
+            <NuxtImg
               class="about__img"
               src="/about_project.jpg"
               alt="Проект башня ОКО"
-            >
+              loading="lazy"
+            />
             <!-- <div class="about__img-header"> -inner-->
             <VTextSlice class="about__img-header">
               GLOBAL

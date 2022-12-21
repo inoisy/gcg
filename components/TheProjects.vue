@@ -4,6 +4,7 @@
     id="projects"
     class="projects"
   >
+    <h1 class="page__header projects__heading mobile">ПРОЕКТЫ</h1>
     <div class="projects__top">
       <div
         ref="scrollBoxCategories"
@@ -11,26 +12,27 @@
         class="projects__top-categories"
       >
         <div class="projects__top-categories-header">ОБЪЕКТЫ:</div>
-        <NuxtLink
+        <div
           v-for="category in categories"
           :key="category.name"
           class="projects__categories"
           :class="{
             'is-active': categorySelected === category.slug
           }"
-          :to="{
+
+          @click="onCategoryClick(category.slug)"
+        >
+          {{ category.name }}&nbsp;({{ category.total }})
+        </div>
+      </div>
+      <!--
+          event=""
+          draggable="false".native :to="{
             name: 'index',
             query: {
               category: category.slug
             }
-          }"
-          event=""
-          draggable="false"
-          @click.native="onCategoryClick(category.slug)"
-        >
-          {{ category.name }}&nbsp;({{ category.total }})
-        </NuxtLink>
-      </div>
+          }" -->
       <transition-group
         ref="scrollBox"
         v-touch-pan.horizontal.prevent.mouse="handlePan"
@@ -38,28 +40,29 @@
         tag="div"
         class="projects__projects"
       >
-        <NuxtLink
+        <div
           v-for="item in projectsFiltered"
           :key="item.slug"
           class="projects__projects-item"
-          :to="{
+          @click="onProjectClick(item.slug)"
+        >
+          <!--
+          draggable="false" :to="{
             name: 'index',
             query: {
               ...$route.query,
               project: item.slug
             }
-          }"
-          draggable="false"
-        >
+          }" -->
           {{ item.title }}
-        </NuxtLink>
+        </div>
       </transition-group>
     </div>
     <div class="projects__content" >
       <div class="line horizontal top"/>
       <div class="projects__content-left">
         <div class="projects__content-left-inner">
-          <h1 class="page__header projects__heading">ПРОЕКТЫ</h1>
+          <h1 class="page__header projects__heading desktop">ПРОЕКТЫ</h1>
           <transition
             name="fade-fast"
             mode="out-in"
@@ -69,19 +72,32 @@
               class="projects__top-text"
             >
               <h2 class="projects__title">{{ project.title }}</h2>
-              <div class="projects__dates">
-                {{ project.dateStart }} - {{ project.dateEnd }}
+              <div class="projects__project-info">
+                <template v-if="project.dateStart">
+                  {{ project.dateStart }} -
+                </template>
+                {{ project.dateEnd }}
+              </div>
+              <div class="projects__project-info desktop">
+                <div>
+                  Площадь: {{ project.square }} <span>м<sup>2</sup></span>
+                </div>
+              </div>
+              <div class="projects__project-info desktop">
+                Вид работ: {{ project.type }}
+              </div>
+              <div class="projects__project-info desktop">
+                Заказчик: {{ project.client }}
               </div>
               <VDropdown
                 ref="copyMenu"
                 distance="10"
               >
-                <!-- v-tooltip="isTextCopy ? 'Координаты скопированы!' : null" -->
                 <div
-                  class="projects__project-info projects__coords"
+                  class="projects__project-info desktop projects__coords"
                   @click="onCopy(`${ project.lat },${ project.long }`)"
                 >
-                  {{ project.lat }},{{ project.long }}
+                  {{ project.lat }}, {{ project.long }}
                   <SvgIcon
                     class="projects__map-icon"
                     name="map"
@@ -116,11 +132,15 @@
                   :key="item.slug"
                   class="swiper-slide"
                 >
-                  <img
+                  <NuxtImg
                     class="projects__img projects__img-mobile"
                     :src="item.img.url"
                     alt="Проект"
-                  >
+                    width="700"
+                    height="436"
+                    loading="lazy"
+                    fit="cover"
+                  />
                 </div>
               </div>
             </div>
@@ -158,6 +178,39 @@
                 </div>
               </div>
             </div>
+            <div class="projects__project-info-mobile-wrapper">
+              <div class="projects__project-info mobile">
+                Вид работ: {{ project.type }}
+              </div>
+              <div class="projects__project-info mobile">
+                Заказчик: {{ project.client }}
+              </div>
+              <VDropdown
+                ref="copyMenu"
+                distance="10"
+              >
+                <div
+                  class="projects__project-info mobile projects__coords"
+                  @click="onCopy(`${ project.lat },${ project.long }`)"
+                >
+                  {{ project.lat }}, {{ project.long }}
+                  <SvgIcon
+                    class="projects__map-icon"
+                    name="map"
+                  />
+                </div>
+                <template #popper>
+                  <div class="projects__copy-popper">
+                    Координаты скопированы!
+                    <SvgIcon
+                      class="projects__copy-popper-icon"
+                      name="check"
+                    />
+                  </div>
+                </template>
+              </VDropdown>
+            </div>
+
           </div>
         </div>
       </div>
@@ -175,6 +228,7 @@
       </div>
     </div>
     <div class="projects__bottom">
+
       <div
         class="line horizontal bottom"
       />
@@ -221,6 +275,8 @@ export default {
       },
       slider: null,
       // isTextCopy: false,
+      categorySelected: null,
+      projectSelected: null,
     };
   },
   computed: {
@@ -228,25 +284,25 @@ export default {
       return this.projectsFiltered[this.currentIndex];
     },
     projectsFiltered() {
-      if (!this.$route.query.category) {
+      if (!this.categorySelected) { // $route.query.category
         return this.projects;
       }
-      return this.projects.filter(item => item.category.slug === this.$route.query.category);
+      return this.projects.filter(item => item.category.slug === this.categorySelected);// $route.query.category
     },
     imageUrl() {
-      return this.project.img.url;
+      return this.project?.img?.url;
     },
-    imageIndex() {
-      return {
-        currentIndex: this.currentIndex,
-        image: this.imageUrl,
-        category: this.$route.query.category,
-        // isImageLoad: this.isImageLoad,
-      };
-    },
-    categorySelected() {
-      return this.$route.query.category;
-    },
+    // imageIndex() {
+    //   return {
+    //     currentIndex: this.currentIndex,
+    //     image: this.imageUrl,
+    //     category: this.categorySelected/// this.$route.query.category,
+    //     // isImageLoad: this.isImageLoad,
+    //   };
+    // },
+    // categorySelected() {
+    //   return this.$route.query.category;
+    // },
   },
   watch: {
     isMobile: {
@@ -258,39 +314,43 @@ export default {
           this.initSwiper();
         }
         this.$nextTick(() => {
-          // console.log('🚀 ~ file: TheProjects.vue ~ line 248 ~ isMobile ~ val', val);
-          // if (!val) {
           this.isInitAnimationEnd = false;
           this.runAnimation();
-          // }
         });
       },
       immediate: true,
     },
-    // isMobile(val, oldVal) {
-
-    // },
-    // imageUrl() {
-    //   this.isImageLoad = false;
-    // },
-    '$route.query.category'(val) {
-      // console.log('🚀 ~ file: index.vue ~ line 262 ~ val', val);
+    'categorySelected'(val) {
       this.currentIndex = 0;
-    },
-    '$route.query.project'(val) {
-      if (val) {
-        const newIndex = this.projectsFiltered.findIndex(item => item.slug === val);
-        // console.log('🚀 ~ file: index.vue ~ line 271 ~ newIndex', newIndex);
-        this.currentIndex = newIndex;
+      //  this.slider.update();
+      //                 this.slider.loopDestroy();
+      //                 this.slider.loopCreate();
+      //                 this.slider.slideTo(this.synchronizeSlides ? this.activeIndex + 1 : 0, 0);
+      //                 this.slider.slideToLoop(this.synchronizeSlides ? this.activeIndex : 0, 0);
+      //                 this.slider.lazy.loadInSlide(this.synchronizeSlides ? this.activeIndex + 1 : 0);
+      //                 this.activeIndex = this.synchronizeSlides ? this.activeIndex : 0;
+      if (this.slider) {
+        this.slider.destroy();
+        this.slider = null;
+        this.$nextTick(() => {
+          this.initSwiper();
+        });
       }
     },
+    projectSelected: // $route.query.project
+      {
+        handler(val) {
+          if (val) {
+            const newIndex = this.projectsFiltered.findIndex(item => item.slug === val);
+            this.currentIndex = newIndex;
+          }
+        },
+        immediate: true,
+      },
     imageUrl(val, oldVal) {
-      // console.log('🚀 ~ file: index.vue ~ line 296 ~ imageIndex ~ this.isInitAnimationEnd', this.isInitAnimationEnd);
-
-      if (!this.isInitAnimationEnd) {
+      if (!this.isInitAnimationEnd || this.isMobile) {
         return;
       }
-      // console.log('🚀 ~ file: TheProjects.vue ~ line 265 ~ imageUrl ~ this.isInitAnimationEnd', this.isInitAnimationEnd);
 
       return this.$anime({
         easing: 'easeInCubic',
@@ -377,16 +437,25 @@ export default {
         });
       });
     },
-    onCategoryClick(slug, e) {
-      if (this.$route.query.category === slug) {
-        return this.$router.push({ name: 'index' });
+    onProjectClick(slug) {
+      if (this.projectSelected === slug) {
+        this.projectSelected = null;
+        return;
       }
-      return this.$router.push({
-        name: 'index',
-        query: {
-          category: slug,
-        },
-      });
+      this.projectSelected = slug;
+    },
+    onCategoryClick(slug) { // , e
+      if (this.categorySelected === slug) {
+        this.categorySelected = null;
+        return; // this.$router.push({ name: 'index' });
+      }
+      this.categorySelected = slug;
+      // return this.$router.push({
+      //   name: 'index',
+      //   query: {
+      //     category: slug,
+      //   },
+      // });
     },
     handlePrev() {
       const newIndex = this.currentIndex - 1;
@@ -615,10 +684,26 @@ export default {
       @include respond-to(md) {
         padding-left: 16px;
       }
+
+      &.desktop {
+        @include respond-to(md) {
+          display: none;
+        }
+      }
+
+      &.mobile {
+        display: none;
+        margin-top: 24px;
+        margin-bottom: 32px - 8px - 8px;
+
+        @include respond-to(md) {
+          display: block;
+        }
+      }
     }
 
     &__title {
-      margin-bottom: torem(8);
+      margin-bottom: torem(16);
       font-size: torem(28);
       font-weight: 600;
       line-height: percentage(33px/28px);
@@ -632,24 +717,48 @@ export default {
     }
 
     &__dates {
-      margin-bottom: torem(32);
-      font-weight: 300;
-      color: $olive;
+      // margin-bottom: torem(32);
+      // font-weight: 300;
+      // color: $olive;
 
-      @include respond-to(md) {
-        margin-bottom: 9px;
-        font-size: 10px;
-        line-height: 12px;
-      }
+      // @include respond-to(md) {
+      //   margin-bottom: 9px;
+      //   font-size: 10px;
+      //   line-height: 12px;
+      // }
     }
 
     &__coords {
+      display: inline-flex;
       cursor: pointer;
+
+      &.mobile {
+        display: inline-flex;
+        margin-bottom: 0 !important;
+        color: #aac0b4 !important;
+      }
+
+      &.desktop {
+        display: inline-flex;
+      }
+    }
+
+    &__project-info-mobile-wrapper {
+      display: none;
+      margin-top: 16px;
+      padding-right: 16px;
+      padding-left: 16px;
+
+      @include respond-to(md) {
+        display: block;
+      }
     }
 
     &__project-info {
       display: flex;
+      // display: inline-flex;
       align-items: center;
+      margin-bottom: torem(16);
       font-size: torem(12);
       font-weight: 300;
       line-height: percentage(14px/12px);
@@ -660,6 +769,19 @@ export default {
         font-size: 10px;
         font-weight: 300;
         line-height: 12px;
+      }
+
+      &.desktop {
+        @include respond-to(md) {
+          display: none;
+        }
+      }
+
+      &.mobile {
+        margin-bottom: 16px;
+        font-size: 12px;
+        line-height: 14px;
+        color: #0b0b0b;
       }
     }
 
@@ -825,7 +947,7 @@ export default {
       padding-left: torem(32);
 
       @include respond-to(md) {
-        order: 2;
+        order: 0;
         padding-top: 0;
         padding-bottom: 0;
         padding-left: 16px;
@@ -870,11 +992,13 @@ export default {
     }
 
     &__categories {
+      white-space: nowrap;
       font-weight: 400;
       font-style: italic;
       letter-spacing: .32em;
       color: $olive;
       user-select: none;
+      cursor: pointer;
 
       &.is-active {
         font-weight: 700;
@@ -953,6 +1077,7 @@ export default {
       letter-spacing: .32em;
       color: $black;
       user-select: none;
+      cursor: pointer;
 
       &:last-child {
         margin-right: 32px;

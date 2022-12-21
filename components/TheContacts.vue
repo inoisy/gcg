@@ -10,8 +10,14 @@
       <div class="contacts__header page__header mobile">
         Контакты
       </div>
-      <yandex-map
-        v-if="isMounted"
+      <div
+        id="contacts-map-container"
+        class="contacts__map"
+      >
+
+      </div>
+      <!-- <yandex-map
+
         class="contacts__map"
         :settings="mapSettings"
         :coords="coords"
@@ -22,7 +28,7 @@
           marker-id="1"
           :coords="coords"
         />
-      </yandex-map>
+      </yandex-map> -->
     <!-- marker-type="placemark" -->
     </div>
     <div class="contacts__right">
@@ -59,18 +65,18 @@
 
 <script>
 // class="mb-6"
-import {
-  yandexMap,
-  ymapMarker,
-} from 'vue-yandex-maps';
+// import {
+//   yandexMap,
+//   ymapMarker,
+// } from 'vue-yandex-maps';
 import VIntersect from '~/components/ui/VIntersect.vue';
 
 
 export default {
   name: 'TheContacts',
   components: {
-    yandexMap,
-    ymapMarker,
+    // yandexMap,
+    // ymapMarker,
     VIntersect,
   },
   props: {
@@ -110,6 +116,27 @@ export default {
     this.isMounted = true;
   },
   methods: {
+    async main() {
+      // // Промис `ymaps3.ready` будет зарезолвлен, когда
+      // // загрузятся все компоненты API.
+      // await ymaps3.ready;
+      // // Создание карты.
+      // const map = new ymaps3.YMap(document.getElementById('contacts-map-container"'), {
+      //   location: {
+      //     // Координаты центра карты.
+      //     // Порядок по умолчанию: «долгота, широта».
+      //     center: [55.65087240821449, 37.5871790090988], // [37.64, 55.76],
+
+      //     // Уровень масштабирования. Допустимые значения:
+      //     // от 0 (весь мир) до 19.
+      //     zoom: 7,
+      //   },
+      // // [
+      // //   // Добавляем слой для отображения схематической карты Яндекса.
+      // //   new ymaps3.YMapDefaultSchemeLayer()
+      // // ]
+      // });
+    },
     onEnter() {
       this.isIntersected = true;
     },

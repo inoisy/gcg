@@ -35,3 +35,7 @@ html {
 .body--force-scrollbar {
   overflow-y: scroll !important;
 }
+
+.expand-transition {
+  @include transition-default();
+}

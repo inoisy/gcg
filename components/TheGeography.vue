@@ -41,11 +41,12 @@
       <div class="line__vertical"/>
       <div class="geography__map-wrapper">
 
-        <img
+        <NuxtImg
           class="geography__map"
           src="/map.png"
           alt="map"
-        >
+          loading="lazy"
+        />
         <VMenu
           v-for="item in projects.projectsWithCoords"
           :key="item.id"
@@ -72,10 +73,13 @@
             <div class="geography__map-popper-inner">
               <div class="geography__map-popper-inner-row">
                 <div class="geography__map-popper-img-wrapper">
-                  <img
+                  <NuxtImg
                     class="geography__map-popper-img"
                     :src="item.img.url"
-                  >
+                    width="200"
+                    height="100"
+                    loading="lazy"
+                  />
                 </div>
                 <div class="geography__map-popper-text-wrapper">
                   <div class="geography__map-popper-title">
@@ -181,10 +185,11 @@ export default {
       this.isIntersected = true;
     },
     runInitAnimation() {
+      const { $anime } = this;
       if (this.isMobile) {
         return;
       }
-      this.$anime
+      $anime
         .timeline({
           easing: 'easeInCubic',
         })
@@ -192,7 +197,13 @@ export default {
           targets: '.geography__right .line__vertical',
           scaleY: [0, 1],
           duration: 700,
-        });
+        })
+        .add({
+          targets: '.geography__map-pin',
+          opacity: [0, 1],
+          duration: 700,
+          delay: $anime.stagger(100),
+        }, '-=250');
     },
     onScroll(e) {
       const rect = this.$refs.wrapper.getBoundingClientRect();
@@ -302,8 +313,10 @@ export default {
     }
 
     &__projects {
+      display: flex;
       margin-top: torem(32);
       margin-bottom: torem(32);
+      flex-direction: column;
 
       @include respond-to(md) {
         display: none;
@@ -357,6 +370,10 @@ export default {
 
     &__map-pin {
       position: absolute;
+
+      @include respond-to(md) {
+        transform: translate(20px, 20px);
+      }
     }
 
     &__map-pin-inner {
@@ -429,6 +446,7 @@ export default {
 
     &__map-popper-inner {
       display: flex;
+      max-width: 350px;
       padding: 16px;
       flex-direction: column;
     }

@@ -27,3 +27,14 @@
 @function torem($valPx) {
   @return #{($valPx / 10)}rem;
 }
+
+@mixin transition-default() {
+  &-enter-active,
+  &-leave-active {
+    transition: $transition !important;
+  }
+
+  &-move {
+    transition: transform .6s;
+  }
+}

@@ -28,6 +28,11 @@ export default () => {
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap' },
       ],
+      script: [{
+        // src: 'https://api-maps.yandex.ru/3.0/?apikey=9e19261d-a9e9-4b6f-9c07-143229b3718b&lang=ru_RU',
+        // defer: true,
+        // <script src="https://api-maps.yandex.ru/3.0/?apikey=<ваш API-ключ>&lang=ru_RU"></script>
+      }],
     },
     server: {
       port: process.env.APP_PORT,
@@ -80,6 +85,7 @@ export default () => {
       '@nuxtjs/axios',
       '@nuxt/content',
       'nuxt-clipboard',
+      '@nuxt/image',
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
