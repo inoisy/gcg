@@ -10,14 +10,14 @@
       <div class="contacts__header page__header mobile">
         Контакты
       </div>
-      <div
+      <!-- <div
         id="contacts-map-container"
         class="contacts__map"
       >
 
-      </div>
-      <!-- <yandex-map
-
+      </div> -->
+      <yandex-map
+        v-if="isMounted"
         class="contacts__map"
         :settings="mapSettings"
         :coords="coords"
@@ -28,7 +28,7 @@
           marker-id="1"
           :coords="coords"
         />
-      </yandex-map> -->
+      </yandex-map>
     <!-- marker-type="placemark" -->
     </div>
     <div class="contacts__right">

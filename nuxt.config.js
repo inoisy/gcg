@@ -1,12 +1,13 @@
 export default () => {
   const envs = {
-    API_URL: process.env.API_URL,
+    // API_URL: process.env.API_URL,
     MAP_API_KEY: process.env.MAP_API_KEY,
   };
   console.log('🚀 ~ file: nuxt.config.js ~ line 5 ~ envs', envs);
   return {
+    telemetry: false,
     // Target: https://go.nuxtjs.dev/config-target
-  // target: 'static',
+    // target: 'static',
     publicRuntimeConfig: envs,
     envs,
 
@@ -48,11 +49,11 @@ export default () => {
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
       '~/directives/index.js',
-      '~/plugins/graphql.js',
+      // '~/plugins/graphql.js',
       '~/plugins/breakpoint.js',
       '~/plugins/floating.js',
       { src: '~/plugins/swiper.js', mode: 'client' },
-      // { src: '~/plugins/ymapPlugin.js', mode: 'client' },
+      { src: '~/plugins/ymapPlugin.js', mode: 'client' },
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
