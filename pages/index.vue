@@ -906,15 +906,15 @@ export default {
       // line-height: 118%;
       line-height: percentage(112px / 95px);
       letter-spacing: .245em;
-      color: $black;
+      color: #002f72;
 
       .v-text-slice__word {
         &:nth-child(2) {
           .v-text-slice__letter:nth-child(n+4) {
-            color: white;
+            color: #d9d9d9;
 
             @include respond-to(md) {
-              color: $black;
+              color: #002f72;
             }
           }
         }
@@ -930,7 +930,7 @@ export default {
         // mix-blend-mode: unset;
 
         .v-text-slice__word:first-child {
-          color: white;
+          color: #d9d9d9;
         }
       }
     }
