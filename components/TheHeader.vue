@@ -25,14 +25,26 @@
     <div
       class="the-header__nav"
     >
-      <div
-        v-for="item in items"
-        :key="item.slug"
-        class="the-header__nav-item"
-        @click="$scrollTo(`#${item.slug}`,{ offset: -72 })"
-      >
-        {{ item.text }}
-      </div>
+      <template v-for="item in items">
+        <div
+          v-if="!item.href"
+          :key="item.slug"
+          class="the-header__nav-item"
+          @click="$scrollTo(`#${item.slug}`,{ offset: -72 })"
+        >
+          {{ item.text }}
+        </div>
+        <a
+          v-else
+          :key="item.href"
+          :href="item.href"
+          class="the-header__nav-item"
+          0
+          target="_blank"
+        >
+          {{ item.text }}
+        </a>
+      </template>
     </div>
     <div
       class="the-header__burger"

@@ -50,7 +50,7 @@
           55.65087240821449, 37.5871790090988
         </div>
         <div class="contacts__text contacts__email">
-          <a href="mailto:globalconsgroup@gcg.com">globalconsgroup@gcg.com</a>
+          <a href="mailto:info@globalcons.group">info@globalcons.group</a>
         </div>
         <div class="contacts__text contacts__phones">
           <a href="tel:+74992880268">+7 499 288 02 68</a>

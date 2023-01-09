@@ -25,6 +25,7 @@ export default [
   },
   {
     text: 'Презентация',
-    slug: 'presentation',
+    // slug: 'presentation',
+    href: '/Презентация.pdf',
   },
 ];

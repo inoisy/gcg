@@ -10,14 +10,26 @@
   />
   <BaseDrawer v-model="isShowMenu">
     <div class="drawer-nav">
-      <div
-        v-for="item in $options.navItems"
-        :key="item.slug"
-        class="drawer-nav__item"
-        @click="handleScrollTo(item.slug)"
-      >
-        {{ item.text }}
-      </div>
+      <template v-for="item in $options.navItems">
+        <div
+          v-if="!item.href"
+          :key="item.slug"
+          class="drawer-nav__item"
+          @click="handleScrollTo(item.slug)"
+        >
+          {{ item.text }}
+        </div>
+        <a
+          v-else
+          :key="item.href"
+          :href="item.href"
+          class="drawer-nav__item"
+          target="_blank"
+        >
+          {{ item.text }}
+        </a>
+      </template>
+
       <!-- {{ $options.navItems }} -->
     </div>
   </BaseDrawer>
@@ -948,6 +960,7 @@ export default {
   }
 
   .index-page {
+    // overflow-x: hidden;
     flex: 1;
     height: 100%;
   }
