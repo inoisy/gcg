@@ -610,6 +610,7 @@ export default {
       position: absolute;
       right: 0;
       left: 0;
+      z-index: 1;
       width: 100%;
       height: 1px;
       transform: scaleX(0);
@@ -644,7 +645,7 @@ export default {
 
     @include respond-to(md) {
       // margin-bottom: 0;
-      padding-bottom: 100px - 8px;
+      // padding-bottom: 100px - 8px;
     }
 
     .swiper-slide {
@@ -1110,8 +1111,14 @@ export default {
     &__bottom {
       position: relative;
 
+      .line.horizontal {
+        bottom: 0;
+      }
+
       @include respond-to(md) {
-        display: none;
+        padding-bottom: 92px;
+
+        //   display: none;
       }
       // height: 133px;
     }

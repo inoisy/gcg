@@ -33,7 +33,7 @@
           <VTextSlice class="main__header">
             GLOBAL
             CONSTRUCTION
-            GROUP
+            <!-- GROUP -->
           </VTextSlice>
           <div class="line__horizontal mobile mobile-two"/>
         </div>
@@ -79,17 +79,7 @@
             </VTextSlice>
             <!-- </div> -->
           </div>
-          <div class="about__content-right">
-            <p>
-              Мы — строительная, инженерно-техническая компания, выполняющая широкий спектр строительно-монтажных и инженерных работ объектов жилой и коммерческой недвижимости.
-            </p>
-            <p>
-              Компания была создана в Москве  в 2011 году с целью выполнения внутренних инженерных работ.
-            </p>
-            <p>
-              На сегодняшний день является активно развивающейся компанией, которая работает на строительном рынке Москвы и других регионов Российской Федерации.
-            </p>
-          </div>
+          <TheTextSlider class="about__content-right"/>
         </div>
       </div>
 
@@ -202,7 +192,7 @@ import TheGeography from '~/components/TheGeography.vue';
 import TheServices from '~/components/TheServices.vue';
 import TheLicenses from '~/components/TheLicenses.vue';
 import TheContacts from '~/components/TheContacts.vue';
-
+import TheTextSlider from '~/components/TheTextSlider.vue';
 // import MAIN_QUERY from '~/queries/main';
 /* eslint-disable no-promise-executor-return*/
 function sleep(ms) {
@@ -212,6 +202,7 @@ export default {
   name: 'IndexPage',
   components: {
     TheHeader,
+    TheTextSlider,
     VTextSlice,
     VIntersect,
     TheProjects,
@@ -688,7 +679,9 @@ export default {
     &__content-right {
       display: flex;
       justify-content: center;
+      // padding-top: torem(75);
       padding-right: torem(48);
+      // padding-bottom: torem(75);
       padding-left: torem(54);
       font-size: torem(16);
       font-weight: 400;
@@ -698,7 +691,7 @@ export default {
       flex-direction: column;
 
       p {
-        margin-bottom: torem(28);
+        margin-bottom: torem(20);
 
         @include respond-to(md) {
           margin-bottom: 16px;
@@ -842,7 +835,7 @@ export default {
 
         @include respond-to(md) {
           display: block;
-          width: calc(100% - 180px);
+          width: calc(100% - 454px);
         }
       }
     }
@@ -850,13 +843,13 @@ export default {
     .line__vertical-one {
       top: 0;
       left: torem(129);//px;
-      height: torem(61);
+      height: torem(90);
     }
 
     .line__vertical-one-bottom {
       bottom: 0;
       left: torem(129);
-      height: torem(417);
+      height: torem(550);
     }
 
     .line__vertical-two {
@@ -878,7 +871,7 @@ export default {
     }
 
     &__header-wrapper {
-      padding-top: torem(80);
+      padding-top: torem(90);
       padding-left: torem(48);
 
       @include respond-to(md) {
@@ -892,18 +885,34 @@ export default {
     &__header {
       position: relative;
       z-index: 2;
-      max-width: torem(777);
-      font-size: torem(97);
+      max-width: torem(1017);
+      font-size: torem(95);
       font-weight: 900;
-      line-height: 118%;
+      // line-height: 118%;
+      line-height: percentage(112px / 95px);
+      letter-spacing: .245em;
       color: $black;
-      mix-blend-mode: color;
+
+      .v-text-slice__word {
+        &:nth-child(2) {
+          .v-text-slice__letter:nth-child(n+4) {
+            color: white;
+
+            @include respond-to(md) {
+              color: $black;
+            }
+          }
+        }
+      }
+
+      // mix-blend-mode: color;
 
       @include respond-to(md) {
         position: relative;
         max-width: unset;
         font-size: 40px;
-        mix-blend-mode: unset;
+        line-height: 118%;
+        // mix-blend-mode: unset;
 
         .v-text-slice__word:first-child {
           color: white;

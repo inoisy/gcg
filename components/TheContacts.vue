@@ -189,6 +189,7 @@ export default {
     &__map {
       width: 100%;
       height: 100%;
+      -webkit-filter: grayscale(100%);
 
       @include respond-to(md) {
         height: 260px;

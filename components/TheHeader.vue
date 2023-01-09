@@ -11,10 +11,15 @@
       to="/"
       class="the-header__logo"
     >
-      <SvgIcon
+      <!-- <SvgIcon
         :class="{'white': value}"
         class="the-header__logo-img"
         name="logo"
+      /> -->
+      <img
+        class="the-header__logo-img"
+        src="/logo-new.svg"
+        alt="logo"
       />
     </NuxtLink>
     <div
@@ -180,7 +185,7 @@ export default {
     }
 
     &__logo-img {
-      width: 90px;
+      width: 143.13px;
       height: 40px;
       color: $black;
       transition: color $transition;
