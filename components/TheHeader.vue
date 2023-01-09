@@ -182,6 +182,7 @@ export default {
       //   width: 56px;
       //   min-width: 56px;
       // }
+      display: flex;
     }
 
     &__logo-img {
@@ -192,8 +193,8 @@ export default {
       object-fit: contain;
 
       @include respond-to(md) {
-        width: 56px;
-        min-width: 56px;
+        width: 90px;
+        min-width: 90px;
         height: 25px;
       }
 
