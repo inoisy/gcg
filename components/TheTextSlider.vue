@@ -86,6 +86,12 @@ export default {
       position: absolute;
       bottom: 0;
       display: flex;
+
+      @include respond-to(md) {
+        position: relative;
+        margin-top: 26px;
+        margin-left: auto;
+      }
     }
 
     &__pagination-arrow {

@@ -666,13 +666,16 @@ export default {
       }
 
       @include respond-to(md) {
+        left: 0;
         max-width: unset;
-        text-align: right;
+        // transform: translate(-26px, -31px);
+        text-align: left;
+        // text-align: right;
         font-size: 14px;
         font-weight: 700;
         line-height: 16px;
         letter-spacing: .04em;
-        transform: translate(-26px, -31px);
+        transform: translate(16px, -31px);
       }
     }
 
@@ -704,7 +707,7 @@ export default {
 
       @include respond-to(md) {
         order: 1;
-        margin-bottom: 64px;
+        margin-bottom: 34px;
         padding-right: 16px;
         padding-left: 16px;
         font-size: 12px;
