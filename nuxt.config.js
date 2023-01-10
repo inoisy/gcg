@@ -2,6 +2,7 @@ export default () => {
   const envs = {
     // API_URL: process.env.API_URL,
     MAP_API_KEY: process.env.MAP_API_KEY,
+    IS_SITE_DISABLED: process.env.IS_SITE_DISABLED,
   };
   console.log('🚀 ~ file: nuxt.config.js ~ line 5 ~ envs', envs);
   return {

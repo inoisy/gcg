@@ -1,6 +1,6 @@
 <template>
 <div class="index-page">
-  <TheUnderConstruction v-if="$config.IS_SITE_DISABLED"/>
+  <TheUnderConstruction v-if="!$config.IS_SITE_DISABLED"/>
   <MainPage v-else/>
 </div>
 </template>
@@ -9,7 +9,7 @@
 import TheUnderConstruction from '~/components/TheUnderConstruction.vue';
 import MainPage from '~/components/pages/MainPage.vue';
 export default {
-  name: 'IndexPage',
+  name: 'TestPage',
   components: {
     TheUnderConstruction,
     MainPage,

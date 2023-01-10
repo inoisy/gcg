@@ -25,14 +25,6 @@
           {{ category.name }}&nbsp;({{ category.total }})
         </div>
       </div>
-      <!--
-          event=""
-          draggable="false".native :to="{
-            name: 'index',
-            query: {
-              category: category.slug
-            }
-          }" -->
       <transition-group
         ref="scrollBox"
         v-touch-pan.horizontal.prevent.mouse="handlePan"
@@ -46,14 +38,6 @@
           class="projects__projects-item"
           @click="onProjectClick(item.slug)"
         >
-          <!--
-          draggable="false" :to="{
-            name: 'index',
-            query: {
-              ...$route.query,
-              project: item.slug
-            }
-          }" -->
           {{ item.title }}
         </div>
       </transition-group>
@@ -124,9 +108,7 @@
               ref="slider"
               class="swiper"
             >
-              <!-- v-if="isMounted" Additional required wrapper -->
               <div class="swiper-wrapper">
-                <!-- Slides -->
                 <div
                   v-for="item in projectsFiltered"
                   :key="item.slug"
@@ -228,7 +210,6 @@
       </div>
     </div>
     <div class="projects__bottom">
-
       <div
         class="line horizontal bottom"
       />
@@ -638,8 +619,10 @@ export default {
   }
 
   .projects {
+    overflow-x: hidden;
     display: flex;
     flex: 1;
+    width: 100%;
     flex-direction: column;
     // margin-bottom: 139px;
 
@@ -813,11 +796,11 @@ export default {
       font-size: torem(12);
       font-weight: 300;
       line-height: percentage(14px/12px);
-      user-select: none;
 
       /* Text Grey */
 
       color: #aaaeb6;
+      user-select: none;
 
       @include respond-to(md) {
         margin-bottom: 12px;
@@ -920,8 +903,8 @@ export default {
       width: 100%;
       height: 100%;
       background-color: white;
-      pointer-events: none;
       transform: translateY(0);
+      pointer-events: none;
     }
 
     &__img-mobile-wrapper {
@@ -998,8 +981,8 @@ export default {
       font-style: italic;
       letter-spacing: .32em;
       color: $olive;
-      user-select: none;
       cursor: pointer;
+      user-select: none;
 
       &.is-active {
         font-weight: 700;
@@ -1077,8 +1060,8 @@ export default {
       // line-height: 16px;
       letter-spacing: .32em;
       color: $black;
-      user-select: none;
       cursor: pointer;
+      user-select: none;
 
       &:last-child {
         margin-right: 32px;
