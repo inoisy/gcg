@@ -46,12 +46,24 @@
           <div class="line__horizontal mobile mobile-two"/>
         </div>
         <div class="main__img-wrapper">
-          <NuxtImg
+          <video
+            id="myVideo"
+            autoplay
+            muted
+            loop
+            class="main__img"
+          >
+            <source
+              src="bg.mp4"
+              type="video/mp4"
+            >
+          </video>
+          <!-- <NuxtImg
             src="/main-bg.jpg"
             alt="sd"
             class="main__img"
             loading="lazy"
-          />
+          /> -->
         </div>
         <div class="line__vertical line__vertical-one-bottom" />
         <div class="line__vertical line__vertical-two-bottom" />
@@ -74,14 +86,14 @@
           >
             <NuxtImg
               class="about__img"
-              src="/about_project.jpg"
+              src="/bg2.jpg"
               alt="Проект башня ОКО"
               loading="lazy"
             />
             <VTextSlice class="about__img-header">
               GLOBAL
               CONSTRUCTION
-              GROUP
+              <!-- GROUP -->
             </VTextSlice>
           </div>
           <TheTextSlider class="about__content-right"/>
@@ -651,7 +663,7 @@ export default {
       font-weight: 700;
       line-height: percentage(40px / 34px);
       letter-spacing: .02em;
-      color: $olive;
+      color: $black;
       transform: translate(torem(133.3), torem(-37));
 
       .v-text-slice__word {
@@ -680,7 +692,7 @@ export default {
         font-weight: 700;
         line-height: 16px;
         letter-spacing: .04em;
-        transform: translate(16px, -31px);
+        transform: translate(17px, -16px);
       }
     }
 
