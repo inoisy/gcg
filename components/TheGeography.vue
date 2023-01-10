@@ -14,7 +14,7 @@
       </div>
       <div class="geography__projects">
         <div
-          v-for="project in projects.projectsWithCoords"
+          v-for="project in projects.projectsTop"
           :key="project.title"
           class="geography__projects-item active"
           @click="handleClickProject(project.slug)"
@@ -28,9 +28,10 @@
           ДРУГИЕ ПРОЕКТЫ
         </div>
         <div
-          v-for="project in projects.otherProjects"
+          v-for="project in projects.projectsBottom"
           :key="project.title"
-          class="geography__projects-item"
+          class="geography__projects-item active"
+          @click="handleClickProject(project.slug)"
         >
           {{ project.title }}
         </div>
@@ -49,11 +50,11 @@
           :zoom="zoom"
         >
           <ymap-marker
-            v-for="(item,index) in projects.projectsWithCoords"
+            v-for="(item,index) in allProjects"
             :key="item.id"
             ref="pin"
             :marker-id="index + 1"
-            :coords="[item.lat,item.long]"
+            :coords="[item.lat, item.long]"
           >
             <!-- @click="onClick" -->
             <template slot="balloon">
@@ -72,7 +73,10 @@
                     <div class="geography__map-popper-title">
                       {{ item.title }}
                     </div>
-                    <div class="geography__map-popper-category">
+                    <div
+                      v-if="item.category"
+                      class="geography__map-popper-category"
+                    >
                       {{ item.category.name }}
                     </div>
                   </div>
@@ -93,7 +97,7 @@
           loading="lazy"
         />
         <VMenu
-          v-for="item in projects.projectsWithCoords"
+          v-for="item in projects.projectsTop"
           :key="item.id"
           ref="pin"
           :placement="'top'"
@@ -149,7 +153,7 @@
       </div>
       <VPan class="geography__bottom-inner">
         <div
-          v-for="project in projects.otherProjects"
+          v-for="project in projects.projectsBottom"
           :key="project.title"
           class="geography__projects-item-bottom"
         >
@@ -196,22 +200,24 @@ export default {
       },
       zoom: 10,
       coords: [55.65087240821449, 37.5871790090988],
+      allProjects: projects,
     };
   },
   computed: {
+
     projects() {
-      const projectsWithCoords = [];
-      const otherProjects = [];
+      const projectsTop = [];
+      const projectsBottom = [];
       for (const project of projects) {
-        if (project.top && project.left) {
-          projectsWithCoords.push(project);
+        if (!project.isBottom) {
+          projectsTop.push(project);
         } else {
-          otherProjects.push(project);
+          projectsBottom.push(project);
         }
       }
       return {
-        projectsWithCoords,
-        otherProjects,
+        projectsTop,
+        projectsBottom,
       };
     },
   },
@@ -242,15 +248,15 @@ export default {
     //   console.log('🚀 ~ file: TheGeography.vue:213 ~ onClick ~ payload', payload);
     // },
     handleClickProject(slug) {
-      const index = this.projects.projectsWithCoords.findIndex(item => item.slug === slug);
+      const index = this.allProjects.findIndex(item => item.slug === slug);
       // console.log('🚀 ~ file: TheGeography.vue:210 ~ handleClickProject ~ index', index);
-      const item = this.projects.projectsWithCoords[index];
+      const item = this.allProjects[index];
       // this.coords = [item.lat, item.long];
       this.zoom = 12;
       const myMap = this.$refs.map.myMap;
       myMap.setCenter([item.lat, item.long]);
-      console.log('🚀 ~ file: TheGeography.vue:251 ~ handleClickProject ~ this.$refs.pin', this.$refs.pin[index]);
-      console.log('🚀 ~ file: TheGeography.vue:252 ~ handleClickProject ~ map', this.$refs.map);
+      // console.log('🚀 ~ file: TheGeography.vue:251 ~ handleClickProject ~ this.$refs.pin', this.$refs.pin[index]);
+      // console.log('🚀 ~ file: TheGeography.vue:252 ~ handleClickProject ~ map', this.$refs.map);
       this.$nextTick(() => {
         myMap.balloon.close();
         myMap.balloon.open([item.lat, item.long], `

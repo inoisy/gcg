@@ -252,7 +252,7 @@ export default {
   // },
   head() {
     return {
-      title: 'GCG',
+      title: 'Global Construction',
     };
   },
   computed: {
@@ -855,7 +855,7 @@ export default {
 
         @include respond-to(md) {
           display: block;
-          width: calc(100% - 454px);
+          width: calc(100% - 340px);
         }
       }
     }
