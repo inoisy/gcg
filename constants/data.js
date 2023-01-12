@@ -131,6 +131,23 @@ const projects = [
     category: categoryPublic,
   },
   {
+    title: 'Russian Design District',
+    slug: 'russian-design-district-2',
+    dateStart: '',
+    dateEnd: 'Настоящее время',
+    lat: '55.504421',
+    long: '37.321136',
+    top: 35,
+    left: 44,
+    square: '18000',
+    type: 'Генеральный подряд',
+    client: 'ГК Родина',
+    img: {
+      url: '/projects/photo_2023-01-12_19-52-17.jpg',
+    },
+    category: categoryPublic,
+  },
+  {
     title: 'ЖК Headliner',
     slug: 'headlainer',
     dateStart: 'Февраль 2020',
