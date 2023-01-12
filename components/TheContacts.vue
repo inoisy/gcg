@@ -42,10 +42,10 @@
           <span>09:00 – 18.00</span>
         </div>
         <div class="contacts__text contacts__address">
-          119530, г.Москва,  Очаковское шоссе, дом 34, помещение IX-K.15
+          119530, г.Москва,  Очаковское шоссе, дом 34
         </div>
         <div class="contacts__coords">
-          55.65087240821449, 37.5871790090988
+          {{ coords.join(', ') }}
         </div>
         <div class="contacts__text contacts__email">
           <a href="mailto:info@globalcons.group">info@globalcons.group</a>
@@ -85,7 +85,7 @@ export default {
   },
   data() {
     return {
-      coords: [55.65087240821449, 37.5871790090988],
+      coords: [55.686736, 37.440496],
       mapSettings: {
         apiKey: process.env.MAP_API_KEY,
         lang: 'ru_RU',

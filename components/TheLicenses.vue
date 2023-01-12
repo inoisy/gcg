@@ -66,17 +66,17 @@ export default {
     return {
       isIntersect: false,
       items: [
-        {
-          title: 'СЕРТИФИКАТ СООТВЕТСТВИЯ',
-          href: '/licenses/Сертификат соответствия 2021-24.pdf',
-        },
+        // {
+        //   title: 'СЕРТИФИКАТ СООТВЕТСТВИЯ',
+        //   href: '/licenses/Сертификат соответствия 2021-24.pdf',
+        // },
         {
           title: 'ЛИЦЕНЗИЯ',
           href: '/licenses/Лицензия МЧС.pdf',
         },
         {
           title: 'ВЫПИСКА',
-          href: '/licenses/Выписка СРО от 17.08.2022.pdf',
+          href: '/licenses/Выписка_из_реестра_членов_СРО_от_19_12_2022г_.pdf',
         },
       ],
     };
