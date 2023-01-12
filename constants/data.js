@@ -31,8 +31,8 @@ const projects = [
   {
     title: 'ЖК I LOVE',
     slug: 'love',
-    dateStart: 'Декабрь 2019',
-    dateEnd: 'Октябрь 2021', // Настоящее время?
+    dateStart: '', // Декабрь 2019
+    dateEnd: 'Настоящее время', // Настоящее время?
     lat: '55.81026115825747',
     long: '37.628744025276525',
     top: 28,
@@ -65,8 +65,8 @@ const projects = [
   {
     title: 'ЖК NOW',
     slug: 'now',
-    dateStart: 'Ноябрь 2021',
-    dateEnd: 'Октябрь 2022',
+    dateStart: '', // Ноябрь 2021
+    dateEnd: 'настоящее время',
     lat: '55.69030796188262',
     long: '37.65644105956688',
     top: 61,
