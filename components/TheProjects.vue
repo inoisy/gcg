@@ -57,6 +57,7 @@
             >
               <h2 class="projects__title">{{ project.title }}</h2>
               <div class="projects__project-info">
+                Срок реализации:
                 <template v-if="project.dateStart">
                   {{ project.dateStart }} -
                 </template>

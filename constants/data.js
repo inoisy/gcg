@@ -32,7 +32,7 @@ const projects = [
     title: 'ЖК I LOVE',
     slug: 'love',
     dateStart: '', // Декабрь 2019
-    dateEnd: 'Настоящее время', // Настоящее время?
+    dateEnd: 'настоящее время', // настоящее время?
     lat: '55.81026115825747',
     long: '37.628744025276525',
     top: 28,
@@ -49,7 +49,7 @@ const projects = [
     title: 'Russian Design District',
     slug: 'russian-design-district',
     dateStart: '',
-    dateEnd: 'Настоящее время',
+    dateEnd: 'настоящее время',
     lat: '55.504421',
     long: '37.321136',
     top: 35,
@@ -82,8 +82,8 @@ const projects = [
   {
     title: 'ЖК WHITE KHAMOVNIKI',
     slug: 'white-khamovniki',
-    dateStart: 'Февраль 2020',
-    dateEnd: 'Июнь 2021', // Настоящее время
+    dateStart: '2020',
+    dateEnd: '2022', // настоящее время
     lat: '55.73309155743882',
     long: '37.579539564518555',
     top: 50,
@@ -100,7 +100,7 @@ const projects = [
     title: 'Торгово-офисный центр Botanica Plaza',
     slug: 'botanica-plaza',
     dateStart: '',
-    dateEnd: 'Настоящее время',
+    dateEnd: 'настоящее время',
     lat: '55.802667',
     long: '37.620901',
     top: 20,
@@ -117,7 +117,7 @@ const projects = [
     title: 'Фитнес центр ЖК Lucky',
     slug: 'fitnies-tsientr-zh-k-lucky',
     dateStart: '',
-    dateEnd: 'Настоящее время',
+    dateEnd: 'настоящее время',
     lat: '55.764684',
     long: '37.619064',
     top: 42,
@@ -134,7 +134,7 @@ const projects = [
     title: 'Russian Design District',
     slug: 'russian-design-district-2',
     dateStart: '',
-    dateEnd: 'Настоящее время',
+    dateEnd: 'настоящее время',
     lat: '55.504421',
     long: '37.321136',
     top: 35,
@@ -150,8 +150,8 @@ const projects = [
   {
     title: 'ЖК Headliner',
     slug: 'headlainer',
-    dateStart: 'Февраль 2020',
-    dateEnd: 'Май 2023',
+    dateStart: '2020',
+    dateEnd: '2022',
     lat: '55.754503038513974',
     long: '37.52423249817328',
     top: 44,
@@ -168,8 +168,8 @@ const projects = [
   {
     title: 'ЖК MONODOM FAMILY',
     slug: 'monodom-family',
-    dateStart: 'Декабрь 2020',
-    dateEnd: 'Сентябрь 2021', // 22
+    dateStart: '2021',
+    dateEnd: '2022', // 22
     lat: '55.750493893399046',
     long: '37.680746111278495',
     top: 47,
@@ -186,8 +186,8 @@ const projects = [
   {
     title: 'Аэропорт Геленджик',
     slug: 'gelenjik',
-    dateStart: 'Декабрь 2020',
-    dateEnd: 'Октябрь 2021',
+    dateStart: '2020',
+    dateEnd: '2022',
     lat: '44.59524685633436',
     long: '38.0233715054193',
     top: null,
@@ -204,8 +204,8 @@ const projects = [
   {
     title: 'ЖК Медный 3.14',
     slug: 'miednyi-3-14',
-    dateStart: 'июнь 2019',
-    dateEnd: 'апрель 2021',
+    dateStart: '2019',
+    dateEnd: '2021',
     lat: '55.69470328494209',
     long: '37.56278124470904',
     top: 53,
@@ -221,8 +221,8 @@ const projects = [
   {
     title: 'ЖК Bauman House',
     slug: 'bauman',
-    dateStart: 'Декабрь 2019',
-    dateEnd: 'Октябрь 2021',
+    dateStart: '2020',
+    dateEnd: '2022',
     lat: '55.77259891553654',
     long: '37.701195099412985',
     top: 40,
@@ -239,7 +239,7 @@ const projects = [
     title: 'ЖК SOHO-NOHO',
     slug: 'soho-noho',
     dateStart: '2019',
-    dateEnd: '2019', // 2020
+    dateEnd: '2020', // 2020
     lat: '55.78648072012682',
     long: '37.58606837429245',
     top: 37,
@@ -255,8 +255,8 @@ const projects = [
   {
     title: 'Аэропорт г.Кемерово',
     slug: 'kemerovo',
-    dateStart: 'Сентябрь 2020',
-    dateEnd: 'Апрель 2021',
+    dateStart: '2020',
+    dateEnd: '2021',
     lat: '55.28139903866993',
     long: '86.11630883228868',
     top: null,
@@ -273,8 +273,8 @@ const projects = [
   {
     title: 'ЖК Домашний',
     slug: 'domashnii',
-    dateStart: 'сентябрь 2018',
-    dateEnd: 'май 2021',
+    dateStart: '2018',
+    dateEnd: '2020',
     lat: '55.64447380594313',
     long: '37.70293405023615',
     top: 73.5,
@@ -290,7 +290,7 @@ const projects = [
   {
     title: 'Аэропорт Домодедово',
     slug: 'domodedovo',
-    dateStart: '2019',
+    dateStart: '2017',
     dateEnd: '2019',
     lat: '55.41565049261007',
     long: '37.90800950438577',
@@ -308,7 +308,7 @@ const projects = [
   {
     title: 'ЖК Люблинский',
     slug: 'liublinskii',
-    dateStart: '2019',
+    dateStart: '2018',
     dateEnd: '2019',
     lat: '55.67279878323717',
     long: '37.74779469329707',
@@ -325,8 +325,8 @@ const projects = [
   {
     title: 'Аэропорт г.Челябинск',
     slug: 'chelyabinsk',
-    // dateStart: '?',
-    dateEnd: '2018',
+    dateStart: '2019',
+    dateEnd: '2020',
     lat: '55.297781780423286',
     long: '61.509328558271356',
     top: null,
@@ -341,10 +341,10 @@ const projects = [
     category: categoryAirports,
   },
   {
-    title: 'Снегири',
+    title: 'Снегири ЭКО',
     slug: 'snieghiri',
     dateStart: '2016',
-    dateEnd: '2016', // 2018
+    dateEnd: '2018', // 2018
     lat: '55.71714219125542',
     long: '37.503535715107425',
     top: 54,
@@ -360,7 +360,7 @@ const projects = [
   {
     title: 'Аэропорт г.Симферополь, Новый терминал',
     slug: 'simfieropol',
-    // dateStart: '?',
+    dateStart: '2018',
     dateEnd: '2018',
     lat: '45.03587149270787',
     long: '33.98156949471629',
@@ -378,8 +378,8 @@ const projects = [
   {
     title: 'МФК Филиград',
     slug: 'filighrad',
-    dateStart: '2018',
-    dateEnd: '2018',
+    dateStart: '2015',
+    dateEnd: '2017',
     lat: '55.7559888702503',
     long: '37.50643551321893',
     top: 43,
@@ -395,8 +395,8 @@ const projects = [
   {
     title: 'Посольство США в Москве',
     slug: 'posolstvo-usa',
-    dateStart: '2018',
-    dateEnd: '2018',
+    dateStart: '2016',
+    dateEnd: '2017',
     lat: '55.75573817474805',
     long: '37.57978769140053',
     top: 44,
@@ -413,7 +413,7 @@ const projects = [
     title: 'ТЦ Столица',
     slug: 'stolitsa',
     dateStart: '2018',
-    dateEnd: '2018',
+    dateEnd: '2019',
     lat: '55.60457246768681',
     long: '37.35636564268442',
     top: 79,

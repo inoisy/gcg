@@ -66,10 +66,10 @@ export default {
     return {
       isIntersect: false,
       items: [
-        // {
-        //   title: 'СЕРТИФИКАТ СООТВЕТСТВИЯ',
-        //   href: '/licenses/Сертификат соответствия 2021-24.pdf',
-        // },
+        {
+          title: 'СЕРТИФИКАТ СООТВЕТСТВИЯ',
+          href: '/licenses/Сертификат соответствия, ИСО.pdf',
+        },
         {
           title: 'ЛИЦЕНЗИЯ',
           href: '/licenses/Лицензия МЧС.pdf',
