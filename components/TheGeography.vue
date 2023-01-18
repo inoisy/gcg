@@ -196,10 +196,9 @@ export default {
         enterprise: false,
         // version: '2.1',
         suppressMapOpenBlock: true,
-        //
       },
       zoom: 10,
-      coords: [55.65087240821449, 37.5871790090988],
+      coords: [55.7500609, 37.6238099],
       allProjects: projects,
     };
   },
