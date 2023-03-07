@@ -458,7 +458,8 @@ export default {
     justify-content: flex-end;
     height: 100%;
     padding: 64px  16px;
-    color: white;
+    background-color: white;
+    color: #002f72;
     flex-direction: column;
 
     &__item {

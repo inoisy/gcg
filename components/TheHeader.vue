@@ -39,7 +39,6 @@
           :key="item.href"
           :href="item.href"
           class="the-header__nav-item"
-          0
           target="_blank"
         >
           {{ item.text }}
@@ -156,10 +155,6 @@ export default {
       }
     }
 
-    &.is-menu-open {
-      background-color: $black;
-    }
-
     &__inner {
       display: flex;
       align-items: center;
@@ -263,13 +258,13 @@ export default {
         }
 
         .the-header__burger-line-one {
-          background-color: white;
+          // background-color: white;
           transform: rotate(45deg)  translate(3px, 2px); //translateY(9px);
         }
 
         .the-header__burger-line-two {
           // margin-top: 9px;
-          background-color: white;
+          // background-color: white;
           transform: rotate(-45deg) translate(3px, -2px);// translateY(15px);
         }
       }
@@ -297,6 +292,19 @@ export default {
       background-color: $black;
       // transform: translateY(15px);
       transition: transform $transition, background-color $transition;
+    }
+
+    &.is-menu-open {
+      // background-color: $black;
+
+      .line__horizontal {
+        background-color: #002f72;
+      }
+
+      // .the-header__burger-line-one,
+      // .the-header__burger-line-two {
+      //   background-color: #002f72;
+      // }
     }
   }
 </style>
