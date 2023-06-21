@@ -11,23 +11,39 @@
       to="/"
       class="the-header__logo"
     >
-      <SvgIcon
+      <!-- <SvgIcon
         :class="{'white': value}"
         class="the-header__logo-img"
         name="logo"
+      /> -->
+      <img
+        class="the-header__logo-img"
+        src="/logo-new.svg"
+        alt="logo"
       />
     </NuxtLink>
     <div
       class="the-header__nav"
     >
-      <div
-        v-for="item in items"
-        :key="item.slug"
-        class="the-header__nav-item"
-        @click="$scrollTo(`#${item.slug}`,{ offset: -72 })"
-      >
-        {{ item.text }}
-      </div>
+      <template v-for="item in items">
+        <div
+          v-if="!item.href"
+          :key="item.slug"
+          class="the-header__nav-item"
+          @click="$scrollTo(`#${item.slug}`,{ offset: -72 })"
+        >
+          {{ item.text }}
+        </div>
+        <a
+          v-else
+          :key="item.href"
+          :href="item.href"
+          class="the-header__nav-item"
+          target="_blank"
+        >
+          {{ item.text }}
+        </a>
+      </template>
     </div>
     <div
       class="the-header__burger"
@@ -139,10 +155,6 @@ export default {
       }
     }
 
-    &.is-menu-open {
-      background-color: $black;
-    }
-
     &__inner {
       display: flex;
       align-items: center;
@@ -177,18 +189,19 @@ export default {
       //   width: 56px;
       //   min-width: 56px;
       // }
+      display: flex;
     }
 
     &__logo-img {
-      width: 90px;
+      width: 143.13px;
       height: 40px;
       color: $black;
       transition: color $transition;
       object-fit: contain;
 
       @include respond-to(md) {
-        width: 56px;
-        min-width: 56px;
+        width: 90px;
+        min-width: 90px;
         height: 25px;
       }
 
@@ -245,13 +258,13 @@ export default {
         }
 
         .the-header__burger-line-one {
-          background-color: white;
+          // background-color: white;
           transform: rotate(45deg)  translate(3px, 2px); //translateY(9px);
         }
 
         .the-header__burger-line-two {
           // margin-top: 9px;
-          background-color: white;
+          // background-color: white;
           transform: rotate(-45deg) translate(3px, -2px);// translateY(15px);
         }
       }
@@ -279,6 +292,19 @@ export default {
       background-color: $black;
       // transform: translateY(15px);
       transition: transform $transition, background-color $transition;
+    }
+
+    &.is-menu-open {
+      // background-color: $black;
+
+      .line__horizontal {
+        background-color: #002f72;
+      }
+
+      // .the-header__burger-line-one,
+      // .the-header__burger-line-two {
+      //   background-color: #002f72;
+      // }
     }
   }
 </style>

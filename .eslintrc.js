@@ -69,7 +69,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'lines-between-class-members': 'error',
     'no-unused-expressions': 'error',
-    'max-len': ['error', { code: 400 }],
+    // 'max-len': ['error', { code: 400 }],
     'no-empty-function': 'error',
     camelcase: 'error',
     'no-shadow': ['error', { allow: ['state', 'getters'] }],

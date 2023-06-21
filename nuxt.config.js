@@ -2,6 +2,7 @@ export default () => {
   const envs = {
     // API_URL: process.env.API_URL,
     MAP_API_KEY: process.env.MAP_API_KEY,
+    IS_SITE_DISABLED: process.env.IS_SITE_DISABLED,
   };
   console.log('🚀 ~ file: nuxt.config.js ~ line 5 ~ envs', envs);
   return {
@@ -13,9 +14,9 @@ export default () => {
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-      title: 'gcg',
+      title: 'Global Construction',
       htmlAttrs: {
-        lang: 'en',
+        lang: 'ru',
       },
       meta: [
         { charset: 'utf-8' },
@@ -28,6 +29,27 @@ export default () => {
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap' },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon.png',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicon-32x32.png',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/favicon-16x16.png',
+        },
+        {
+          rel: 'manifest',
+          href: '/site.webmanifest',
+        },
       ],
       script: [{
         // src: 'https://api-maps.yandex.ru/3.0/?apikey=9e19261d-a9e9-4b6f-9c07-143229b3718b&lang=ru_RU',

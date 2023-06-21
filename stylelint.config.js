@@ -4,6 +4,7 @@ module.exports = {
     'stylelint-config-standard',
     // 'stylelint-config-recommended-vue',
     'stylelint-config-css-modules',
+    // 'stylelint-config-standard-scss',
   ],
   plugins: ['stylelint-scss', 'stylelint-order'],
   // add your custom config here

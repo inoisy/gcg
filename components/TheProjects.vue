@@ -25,14 +25,6 @@
           {{ category.name }}&nbsp;({{ category.total }})
         </div>
       </div>
-      <!--
-          event=""
-          draggable="false".native :to="{
-            name: 'index',
-            query: {
-              category: category.slug
-            }
-          }" -->
       <transition-group
         ref="scrollBox"
         v-touch-pan.horizontal.prevent.mouse="handlePan"
@@ -46,14 +38,6 @@
           class="projects__projects-item"
           @click="onProjectClick(item.slug)"
         >
-          <!--
-          draggable="false" :to="{
-            name: 'index',
-            query: {
-              ...$route.query,
-              project: item.slug
-            }
-          }" -->
           {{ item.title }}
         </div>
       </transition-group>
@@ -73,6 +57,7 @@
             >
               <h2 class="projects__title">{{ project.title }}</h2>
               <div class="projects__project-info">
+                Срок реализации:
                 <template v-if="project.dateStart">
                   {{ project.dateStart }} -
                 </template>
@@ -124,9 +109,7 @@
               ref="slider"
               class="swiper"
             >
-              <!-- v-if="isMounted" Additional required wrapper -->
               <div class="swiper-wrapper">
-                <!-- Slides -->
                 <div
                   v-for="item in projectsFiltered"
                   :key="item.slug"
@@ -228,7 +211,6 @@
       </div>
     </div>
     <div class="projects__bottom">
-
       <div
         class="line horizontal bottom"
       />
@@ -610,6 +592,7 @@ export default {
       position: absolute;
       right: 0;
       left: 0;
+      z-index: 1;
       width: 100%;
       height: 1px;
       transform: scaleX(0);
@@ -637,14 +620,16 @@ export default {
   }
 
   .projects {
+    overflow-x: hidden;
     display: flex;
     flex: 1;
+    width: 100%;
     flex-direction: column;
     // margin-bottom: 139px;
 
     @include respond-to(md) {
       // margin-bottom: 0;
-      padding-bottom: 100px - 8px;
+      // padding-bottom: 100px - 8px;
     }
 
     .swiper-slide {
@@ -812,11 +797,11 @@ export default {
       font-size: torem(12);
       font-weight: 300;
       line-height: percentage(14px/12px);
-      user-select: none;
 
       /* Text Grey */
 
       color: #aaaeb6;
+      user-select: none;
 
       @include respond-to(md) {
         margin-bottom: 12px;
@@ -919,8 +904,8 @@ export default {
       width: 100%;
       height: 100%;
       background-color: white;
-      pointer-events: none;
       transform: translateY(0);
+      pointer-events: none;
     }
 
     &__img-mobile-wrapper {
@@ -997,8 +982,8 @@ export default {
       font-style: italic;
       letter-spacing: .32em;
       color: $olive;
-      user-select: none;
       cursor: pointer;
+      user-select: none;
 
       &.is-active {
         font-weight: 700;
@@ -1076,8 +1061,8 @@ export default {
       // line-height: 16px;
       letter-spacing: .32em;
       color: $black;
-      user-select: none;
       cursor: pointer;
+      user-select: none;
 
       &:last-child {
         margin-right: 32px;
@@ -1110,8 +1095,14 @@ export default {
     &__bottom {
       position: relative;
 
+      .line.horizontal {
+        bottom: 0;
+      }
+
       @include respond-to(md) {
-        display: none;
+        padding-bottom: 92px;
+
+        //   display: none;
       }
       // height: 133px;
     }

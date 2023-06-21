@@ -10,12 +10,6 @@
       <div class="contacts__header page__header mobile">
         Контакты
       </div>
-      <!-- <div
-        id="contacts-map-container"
-        class="contacts__map"
-      >
-
-      </div> -->
       <yandex-map
         v-if="isMounted"
         class="contacts__map"
@@ -29,7 +23,6 @@
           :coords="coords"
         />
       </yandex-map>
-    <!-- marker-type="placemark" -->
     </div>
     <div class="contacts__right">
       <div class="contacts__line-vertical line__vertical"/>
@@ -37,20 +30,29 @@
         <div class="contacts__header page__header">
           Контакты
         </div>
-        <div class="contacts__text contacts__work-time">
+        <div class="contacts__text contacts__item contacts__margin-bottom">
+          <span>ОГРН </span>
+          <span>1187746853469</span>
+        </div>
+        <div class="contacts__text contacts__item contacts__margin-bottom">
+          <span>ИНН </span>
+          <span>9729275666</span>
+        </div>
+        <div class="contacts__text contacts__item contacts__margin-bottom">
           <span>График работы </span>
           <span>09:00 – 18.00</span>
         </div>
-        <div class="contacts__text contacts__address">
-          117303, Москва, ул. Каховка, дом 11,
-          строение 1, этаж 1, помещение VI, комната
-          4, офис 258
+        <div class="contacts__margin-bottom">
+          <div class="contacts__text contacts__address">
+            119530, г.Москва,  Очаковское шоссе, дом 34
+          </div>
+          <div class="contacts__coords">
+            {{ coords.join(', ') }}
+          </div>
         </div>
-        <div class="contacts__coords">
-          55.65087240821449, 37.5871790090988
-        </div>
-        <div class="contacts__text contacts__email">
-          <a href="mailto:globalconsgroup@gcg.com">globalconsgroup@gcg.com</a>
+
+        <div class="contacts__text contacts__email contacts__margin-bottom">
+          <a href="mailto:info@globalcons.group">info@globalcons.group</a>
         </div>
         <div class="contacts__text contacts__phones">
           <a href="tel:+74992880268">+7 499 288 02 68</a>
@@ -87,7 +89,7 @@ export default {
   },
   data() {
     return {
-      coords: [55.65087240821449, 37.5871790090988],
+      coords: [55.686736, 37.440496],
       mapSettings: {
         apiKey: process.env.MAP_API_KEY,
         lang: 'ru_RU',
@@ -116,27 +118,6 @@ export default {
     this.isMounted = true;
   },
   methods: {
-    async main() {
-      // // Промис `ymaps3.ready` будет зарезолвлен, когда
-      // // загрузятся все компоненты API.
-      // await ymaps3.ready;
-      // // Создание карты.
-      // const map = new ymaps3.YMap(document.getElementById('contacts-map-container"'), {
-      //   location: {
-      //     // Координаты центра карты.
-      //     // Порядок по умолчанию: «долгота, широта».
-      //     center: [55.65087240821449, 37.5871790090988], // [37.64, 55.76],
-
-      //     // Уровень масштабирования. Допустимые значения:
-      //     // от 0 (весь мир) до 19.
-      //     zoom: 7,
-      //   },
-      // // [
-      // //   // Добавляем слой для отображения схематической карты Яндекса.
-      // //   new ymaps3.YMapDefaultSchemeLayer()
-      // // ]
-      // });
-    },
     onEnter() {
       this.isIntersected = true;
     },
@@ -182,13 +163,14 @@ export default {
       @include respond-to(md) {
         width: 100%;
         height: unset;
-        margin-bottom: 8px;
+        margin-bottom: 24px;
       }
     }
 
     &__map {
       width: 100%;
       height: 100%;
+      -webkit-filter: grayscale(100%);
 
       @include respond-to(md) {
         height: 260px;
@@ -242,12 +224,20 @@ export default {
       }
     }
 
-    &__work-time {
-      margin-bottom: torem(32);
+    &__margin-bottom {
+      margin-bottom: torem(24);
+
+      @include respond-to(md) {
+        margin-bottom: 16px;
+      }
+    }
+
+    &__item {
+      // margin-bottom: torem(24);
 
       @include respond-to(md) {
         display: flex;
-        margin-bottom: 16px;
+        // margin-bottom: 16px;
       }
 
       span {
@@ -262,7 +252,7 @@ export default {
     }
 
     &__address {
-      margin-bottom: torem(12);
+      margin-bottom: torem(10);
 
       @include respond-to(md) {
         margin-bottom: 16px;
@@ -270,16 +260,16 @@ export default {
     }
 
     &__email {
-      margin-bottom: torem(32);
+      // margin-bottom: torem(32);
       text-decoration-line: underline;
 
-      @include respond-to(md) {
-        margin-bottom: 16px;
-      }
+      // @include respond-to(md) {
+      //   margin-bottom: 16px;
+      // }
     }
 
     &__coords {
-      margin-bottom: torem(32);
+      // margin-bottom: torem(32);
       font-size: torem(16);
       font-weight: 300;
       line-height: percentage(19px/16px);
@@ -287,7 +277,7 @@ export default {
 
       @include respond-to(md) {
         order: -1;
-        margin-bottom: 32px;
+        // margin-bottom: 32px;
         font-size: 10px;
         line-height: 12px;
       }
@@ -309,7 +299,6 @@ export default {
 
     &__line-bottom {
       bottom: 0;
-      // transform: scaleX(100%);
       transform-origin: torem(720) 0%;
 
       @include respond-to(md) {
@@ -322,7 +311,7 @@ export default {
       top: 0;
       left: 0;
       height: 100%;
-      // transform: scaleY(100%);
+
       @include respond-to(md) {
         display: none;
       }
