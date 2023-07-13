@@ -14,8 +14,8 @@
       </div>
       <div class="geography__projects">
         <div
-          v-for="project in projects.projectsTop"
-          :key="project.title"
+          v-for="(project) in projects.projectsTop"
+          :key="project.slug"
           class="geography__projects-item active"
           @click="handleClickProject(project.slug)"
         >
@@ -29,7 +29,7 @@
         </div>
         <div
           v-for="project in projects.projectsBottom"
-          :key="project.title"
+          :key="project.slug"
           class="geography__projects-item active"
           @click="handleClickProject(project.slug)"
         >

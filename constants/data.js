@@ -29,6 +29,23 @@ const categories = [categoryPublic, categoryAirports, categoryLiving];
 
 const projects = [
   {
+    title: 'БЦ TALLER',
+    slug: 'taller',
+    dateStart: '',
+    dateEnd: 'Настоящее время',
+    lat: '55.722005',
+    long: '37.646247',
+    top: 35,
+    left: 44,
+    square: '46000',
+    type: 'внутренние инженерные системы',
+    client: 'COLDY',
+    img: {
+      url: '/projects/living/taller1.jpg',
+    },
+    category: categoryPublic,
+  },
+  {
     title: 'ЖК I LOVE',
     slug: 'love',
     dateStart: '', // Декабрь 2019

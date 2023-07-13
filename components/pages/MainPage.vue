@@ -189,7 +189,7 @@
     <TheLicenses :is-mobile="isMobile"/>
     <TheContacts :is-mobile="isMobile"/>
     <div class="page__copy">
-      &copy;&nbsp;Global Contruction Group 2022
+      &copy;&nbsp;Global Construction Group {{ new Date().getFullYear() }}
     </div>
   </div>
 </div>
