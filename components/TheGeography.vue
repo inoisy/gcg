@@ -445,9 +445,9 @@ export default {
 
     &__projects-item {
       display: inline-block;
-      margin-bottom: torem(16);
+      margin-bottom: torem(12);
       text-transform: uppercase;
-      font-size: torem(12);
+      font-size: torem(11);
       font-weight: 400;
       line-height: percentage(14px / 12px);
       letter-spacing: .32em;

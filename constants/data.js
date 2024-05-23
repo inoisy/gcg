@@ -46,10 +46,44 @@ const projects = [
     category: categoryPublic,
   },
   {
+    title: 'ЖК LEVEL БАУМАНСКАЯ',
+    slug: 'level',
+    dateStart: '',
+    dateEnd: 'Настоящее время',
+    lat: '55.722005',
+    long: '37.646247',
+    top: 35,
+    left: 44,
+    square: '37000',
+    type: 'внутренние инженерные сети',
+    client: 'LEVEL GROUP',
+    img: {
+      url: '/projects/ЖИЛЫЕ КОМПЛЕКСЫ/ЖК Бауманская.jpg',
+    },
+    category: categoryLiving,
+  },
+  {
+    title: 'ЖК СКОЛКОВО ONE',
+    slug: 'one',
+    dateStart: '',
+    dateEnd: 'Настоящее время',
+    lat: '55.722005',
+    long: '37.646247',
+    top: 35,
+    left: 44,
+    square: '29000',
+    type: 'инженерные системы',
+    client: 'Ikon Development',
+    img: {
+      url: '/projects/ЖИЛЫЕ КОМПЛЕКСЫ/ЖК Сколково.jpg',
+    },
+    category: categoryLiving,
+  },
+  {
     title: 'ЖК I LOVE',
     slug: 'love',
-    dateStart: '', // Декабрь 2019
-    dateEnd: 'настоящее время', // настоящее время?
+    dateStart: '2019', // Декабрь 2019
+    dateEnd: '2023', // настоящее время?
     lat: '55.81026115825747',
     long: '37.628744025276525',
     top: 28,
@@ -65,8 +99,8 @@ const projects = [
   {
     title: 'Russian Design District',
     slug: 'russian-design-district',
-    dateStart: '',
-    dateEnd: 'настоящее время',
+    dateStart: '2021',
+    dateEnd: '2023',
     lat: '55.504421',
     long: '37.321136',
     top: 35,
@@ -77,7 +111,7 @@ const projects = [
     img: {
       url: '/projects/ЖИЛЫЕ КОМПЛЕКСЫ/ЖК Russian Design District/ЖК Russian Design District.jpg',
     },
-    category: categoryLiving,
+    category: categoryPublic,
   },
   {
     title: 'ЖК NOW',
@@ -133,8 +167,8 @@ const projects = [
   {
     title: 'Фитнес центр ЖК Lucky',
     slug: 'fitnies-tsientr-zh-k-lucky',
-    dateStart: '',
-    dateEnd: 'настоящее время',
+    dateStart: '2022',
+    dateEnd: '2024',
     lat: '55.764684',
     long: '37.619064',
     top: 42,
