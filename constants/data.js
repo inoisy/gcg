@@ -28,23 +28,7 @@ const categoryLiving = new Category(3, 'Жилые комплексы', 'living'
 const categories = [categoryPublic, categoryAirports, categoryLiving];
 
 const projects = [
-  // {
-  //   title: 'БЦ TALLER',
-  //   slug: 'taller',
-  //   dateStart: '',
-  //   dateEnd: 'Настоящее время',
-  //   lat: '55.722005',
-  //   long: '37.646247',
-  //   top: 35,
-  //   left: 44,
-  //   square: '46000',
-  //   type: 'внутренние инженерные системы',
-  //   client: 'COLDY',
-  //   img: {
-  //     url: '/projects/living/taller1.jpg',
-  //   },
-  //   category: categoryPublic,
-  // },
+
   {
     title: 'ЖК СКОЛКОВО ONE',
     slug: 'one',
@@ -96,25 +80,6 @@ const projects = [
     },
     category: categoryLiving,
   },
-
-  {
-    title: 'ЖК NOW',
-    slug: 'now',
-    dateStart: '', // Ноябрь 2021
-    dateEnd: 'настоящее время',
-    lat: '55.69030796188262',
-    long: '37.65644105956688',
-    top: 61,
-    left: 56,
-    square: '60000',
-    type: 'Внутренние инженерные системы',
-    client: 'ФОДД',
-    img: {
-      url: '/projects/ЖИЛЫЕ КОМПЛЕКСЫ/ЖК NOW.jpg',
-    },
-    category: categoryLiving,
-  },
-
   {
     title: 'Торгово-офисный центр Botanica Plaza',
     slug: 'botanica-plaza',
@@ -129,6 +94,23 @@ const projects = [
     client: 'Альфа Строй',
     img: {
       url: '/projects/ОБЩЕСТВЕННЫЕ ЗДАНИЯ/ТОЦ Botanica Piaza.jpg',
+    },
+    category: categoryPublic,
+  },
+  {
+    title: 'БЦ TALLER',
+    slug: 'taller',
+    dateStart: '',
+    dateEnd: 'Настоящее время',
+    lat: '55.722005',
+    long: '37.646247',
+    top: 35,
+    left: 44,
+    square: '46000',
+    type: 'внутренние инженерные системы',
+    client: 'COLDY',
+    img: {
+      url: '/projects/living/taller1.jpg',
     },
     category: categoryPublic,
   },
@@ -165,6 +147,23 @@ const projects = [
       url: '/projects/ОБЩЕСТВЕННЫЕ ЗДАНИЯ/Фитнес центр ЖК Lucky .jpg',
     },
     category: categoryPublic,
+  },
+  {
+    title: 'ЖК NOW',
+    slug: 'now',
+    dateStart: '2021',
+    dateEnd: '2023',
+    lat: '55.69030796188262',
+    long: '37.65644105956688',
+    top: 61,
+    left: 56,
+    square: '60000',
+    type: 'Внутренние инженерные системы',
+    client: 'ФОДД',
+    img: {
+      url: '/projects/ЖИЛЫЕ КОМПЛЕКСЫ/ЖК NOW.jpg',
+    },
+    category: categoryLiving,
   },
   {
     title: 'Russian Design District',
