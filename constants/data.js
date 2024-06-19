@@ -8,14 +8,13 @@ class Category {
   }
 
   setTotal(items) {
-    const count = items.reduce((acc, val) => {
+    this.total = items.reduce((acc, val) => {
       let accInner = acc;
       if (val.category.id === this.id) {
         accInner += 1;
       }
       return accInner;
     }, 0);
-    this.total = count;
   }
 
   toJSON() {
@@ -39,7 +38,7 @@ const projects = [
     top: 35,
     left: 44,
     square: '29000',
-    type: 'инженерные системы',
+    type: 'Внутренние инженерные системы',
     client: 'Ikon Development',
     img: {
       url: '/projects/ЖИЛЫЕ КОМПЛЕКСЫ/ЖК Сколково.jpg',
@@ -56,7 +55,7 @@ const projects = [
     top: 35,
     left: 44,
     square: '37000',
-    type: 'внутренние инженерные сети',
+    type: 'Внутренние инженерные системы',
     client: 'LEVEL GROUP',
     img: {
       url: '/projects/ЖИЛЫЕ КОМПЛЕКСЫ/ЖК Бауманская.jpg',
@@ -107,7 +106,7 @@ const projects = [
     top: 35,
     left: 44,
     square: '46000',
-    type: 'внутренние инженерные системы',
+    type: 'Внутренние инженерные системы',
     client: 'COLDY',
     img: {
       url: '/projects/living/taller1.jpg',
